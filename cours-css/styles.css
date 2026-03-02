@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#exemple-div{
+    border : 2px solid #ff0011;
+    background-color: burlywood;
+    padding: 20px;
+    width: 500px;
+}
+
+h1{
+    border : 1px solid #000011;
+    background-color: aquamarine;
+}
+
+div p{
+    border: 1px solid blue;
+    background-color: aquamarine;
+}
+
+span {
+    display: inline-block;
+    color: yellow;
+    font-weight: bold;
+    width: 300px;
+}
+
+button{
+    width: 150px;
+    padding: 10px;
+    background-color: blue;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover{
+    background: red;
+}
+
+.div1{
+    border: 5px solid red;
+}
+
+.p1 {
+    text-align: center;
+    width: 300px;
+    margin: 0px auto;
+}
