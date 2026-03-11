@@ -1,0 +1,157 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body{
+    background: #f5f6f8;
+}
+
+.page{
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.conteneur{
+    border-radius: 5px;
+    background: white;
+    margin: 10px;
+    padding: 10px;
+    border: 1px #e3e9f0 solid;
+}
+
+.conteneur h2{
+    margin: 5px;
+}
+
+.block {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;  
+    text-align: center;
+    padding: 5px;
+     gap: 10px   ;
+}
+
+.block div{
+    flex-grow: 1;
+   border-radius: 5px;
+   padding: 10px;
+}
+
+.nbproduit  {
+    border: 1px #e3e9f0 solid;     
+}
+
+.nbproduit p{
+    background-color: white;
+}
+
+.up:hover{
+    transform:translate(0px ,-3px) ;
+    transition: 0.3s;
+}
+
+.nombre{
+    font-size: 30px;
+}
+
+.produitrupture{
+    border: 1px #fca5a5 solid;
+    background: #fef2f2;
+}
+
+.produitrupture p{
+    color: red;
+}
+
+.table-conteneur{
+    border: 1px solid #e3e9f0;
+    background: white;
+    margin: 10px;
+    border-radius: 5px;flex-grow: 1;
+    width: auto;
+}
+
+table{
+    border-collapse: collapse; width: 100%;
+}
+
+.entete{
+    background: #f2f4f7;
+    justify-content: space-between;
+}
+
+h3{
+    background: white;
+    margin: 10px;
+}
+
+tbody{
+    width: auto;
+}
+
+tr{
+    border-bottom:1px solid #e3e9f0;
+    border-top: 1px solid #e3e9f0;
+}
+
+th, td{
+    text-align: left;
+    padding:10px ;
+    width: auto;
+}
+
+.text-droite{
+    text-align: right;
+}
+
+.text-centre{
+    text-align: center;
+}
+
+.rouge {
+    background: #fef2f2;
+    border-left: 5px solid #fca5a5;
+    color: #c02726;
+    font-weight: bold;
+}
+
+.rouge:hover{
+    background: #ffe1e1;
+}
+
+.bulle{
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.b-rouge{
+    border-color: #fca5a5;
+}
+
+.b-normal{
+    border-color: #e3e9f0;
+    background-color: aliceblue;
+}
+
+.reapprovisionner{
+    border-radius: 5px;
+    background: red;
+    padding :5px ;
+}
+
+.reapprovisionner:hover{
+    background: #ef4444;
+}
+
+a{
+    text-decoration: none; 
+    color: white;
+}

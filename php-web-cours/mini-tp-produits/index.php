@@ -4,7 +4,7 @@ $produits = [
     ["numeroProduit" => 1002, "nomProduit" => "Souris gaming 6 boutons", "prixHTProduit" => 39.90, "descriptionProduit" => "Capteur précis, DPI réglables.", "quantiteStockProduit" => 8],
     ["numeroProduit" => 1003, "nomProduit" => "Casque audio USB", "prixHTProduit" => 54.90, "descriptionProduit" => "Micro antibruit, idéal visioconférence.", "quantiteStockProduit" => 22],
     ["numeroProduit" => 1004, "nomProduit" => "Tapis de souris XXL", "prixHTProduit" => 19.90, "descriptionProduit" => "Grande surface, base antidérapante.", "quantiteStockProduit" => 6],
-    ["numeroProduit" => 1005, "nomProduit" => "Clé USB 128 Go", "prixHTProduit" => 14.90, "descriptionProduit" => "USB 3.0, compacte et rapide.", "quantiteStockProduit" => 42],
+    ["numeroProduit" => 1005, "nomProduit" => "Clé USB 128 Go", "prixHTProduit" => 14.90, "descriptionProduit" => "USB 3.0, compacte et rapide.", "quantiteStockProduit" => 9],
     ["numeroProduit" => 1006, "nomProduit" => "SSD externe 1 To", "prixHTProduit" => 109.90, "descriptionProduit" => "Transferts rapides, câble USB-C inclus.", "quantiteStockProduit" => 9],
     ["numeroProduit" => 1007, "nomProduit" => "Hub USB-C 7-en-1", "prixHTProduit" => 49.90, "descriptionProduit" => "HDMI, USB, SD, power delivery.", "quantiteStockProduit" => 12],
     ["numeroProduit" => 1008, "nomProduit" => "Câble HDMI 2m", "prixHTProduit" => 9.90, "descriptionProduit" => "Compatible 4K, gaine renforcée.", "quantiteStockProduit" => 5],
@@ -21,49 +21,77 @@ $produits = [
     ["numeroProduit" => 1019, "nomProduit" => "Câble USB-C vers USB-C (2m)", "prixHTProduit" => 8.90, "descriptionProduit" => "Charge + data, compatible PD.", "quantiteStockProduit" => 4],
     ["numeroProduit" => 1020, "nomProduit" => "Adaptateur USB-C vers Ethernet", "prixHTProduit" => 18.90, "descriptionProduit" => "Connexion filaire stable.", "quantiteStockProduit" => 13],
 ];
-$nbProduits= 0;
-$nbProduitsRupture = 0 ;
-$reaprovisionner = [];
+$nbProduits = 0;
+$nbProduitsRupture = 0;
+$quantiteRupture = 10;
 foreach ($produits as $produit) {
-    $nbProduits ++;
-    if($produit["quantiteStockProduit"] < 10){
+    $nbProduits++;
+    if ($produit["quantiteStockProduit"] < $quantiteRupture) {
         $nbProduitsRupture++;
-        $reaprovisionner += $produit;
     }
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion stock</title>
+    <title>Catalogue produits</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    <div>
-        <h2>Catalogue produits</h2>
-        <div>📊 Nombre de produits <?= $nbProduits ?></div>
-        <div>⚠️ Produits en rupture <?= $nbProduitsRupture ?></div>
+    <div class="page">
+        <div class="conteneur">
+            <h2>Catalogue produits</h2>
+            <div class="block">
+                <div class="nbproduit up">
+                    <p>📊 Nombre de produits
+                    <p class="nombre"><strong><?= $nbProduits ?></strong></p>
+                    </p>
+                </div>
+                <div class="produitrupture up">⚠️ Produits en rupture <p class="nombre">
+                        <strong><?= $nbProduitsRupture ?></strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="table-conteneur">
+            <h3>Liste des produits</h3>
+            <table>
+                <tr class="entete">
+                    <th>N°</th>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th class="text-droite">Prix HT</th>
+                    <th class="text-centre">Stock</th>
+                    <th class="text-centre">Action</th>
+                </tr>
+
+                <?php foreach ($produits as $produit): ?>
+                    <tr class="<?= ($produit['quantiteStockProduit'] < $quantiteRupture) ? 'rouge' : 'normal' ?>">
+                        <td><?= $produit['numeroProduit'] ?></td>
+                        <td><?= $produit['nomProduit'] ?></td>
+                        <td><?= $produit['descriptionProduit'] ?></td>
+                        <td class="text-droite"><?= number_format($produit['prixHTProduit'], 2, ",") ?> €</td>
+                        <td class="text-centre">
+                            <span
+                                class="bulle <?= ($produit['quantiteStockProduit'] < $quantiteRupture) ? 'b-rouge' : 'b-normal' ?>">
+                                <?= ($produit['quantiteStockProduit'] < $quantiteRupture) ? "⚠️ " . $produit['quantiteStockProduit'] : $produit['quantiteStockProduit'] ?>
+                            </span>
+                        </td>
+                        <td class="text-centre">
+                            <?php if ($produit['quantiteStockProduit'] < $quantiteRupture): ?>
+                                <p class="reapprovisionner up"><a href="#">📦 Réapprovisionner</a></p>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
     </div>
-    <table>
-        <h3>Liste des produits</h>
-        <tr>
-            <th>Numero</th>
-            <th>Nom</th>
-            <th>Prix HT</th>
-            <th>Description</th>
-            <th>stock</th>
-            <th>Action</th>
-        </tr>
-        <tr>
-            <?php foreach($produits as $produit) :?>
-                <tr><?php foreach($produit as $cle=>$valeur):?>
-                <td> <?= $valeur ?></td>
-                <?php endforeach; ?></tr>
-            <?php endforeach;?>
-        </tr>
-    </table>
 </body>
+
 </html>
