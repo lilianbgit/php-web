@@ -2,7 +2,10 @@
 $prenom = "lilian";
 $nom = "baud";
 $estConnecte = true; 
-require_once __DIR__.'/../lib/fonction.php';
+require_once __DIR__.'/
+
+
+../lib/fonction.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
