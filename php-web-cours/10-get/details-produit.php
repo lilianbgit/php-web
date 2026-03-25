@@ -20,7 +20,7 @@ $id = $_GET['id'] ?? '';
 // Validation du paramètre
 if ($id === '') {
     $messageErreur = "URL Invalide : aucun identifiant de produits";
-} elseif (ctype_digit($id) === false) {
+} elseif (filter_var($id, FILTER_VALIDATE_INT) === false) {
     $messageErreur = "URL invalide : identifiant doit être une valeur numérique";
 } elseif ($id <= 0) {
     $messageErreur = "URL invalide : l'identifiant doit être strictement positif";
