@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f3f5fa;
+}
+.content {
+    border: 1px lightgray solid;
+    border-radius: 15px;
+    background-color: white;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px   ;
+    
+}
+.titre{
+    color: blue;
+    border-bottom: 2px lightgray solid;
+    padding-bottom: 15px;
+}
+.rouge{
+    color: red;
+}
+p{
+    color: gray;
+    font-size: 12px;
+}
+.italic{
+    font-style: italic;
+    margin-top: 10px;
+}
+.champs{
+    background-color: white;
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    max-width: 100%;
+    border: 1px solid #f3f5fa;
+    border-radius: 5px;
+    outline: none;
+}
+.champs:focus{
+    border: 2px solid ;
+    border-color: blue;
+    box-shadow: 0 0 6px rgba(0, 0, 255, 0.438) ;
+}
+
+button{
+    background-color: blue;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    margin-top: 10px;
+    width:100% ;
+}
+.page  {
+    width: 100%;
+    max-width: 460px;
+}
+.selectionner{
+    display: flex;
+    flex-direction: column;
+    gap: 10px   ;
+    margin-top:10px ;
+    margin-bottom: 25px;
+}
