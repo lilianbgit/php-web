@@ -18,7 +18,6 @@ $utilisateurs = [
 ];
 // Gérer la soumission du formulaire
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
-    echo "soumission";
     $login = trim($_POST['login'] ?? '');
     $password = trim($_POST['password'] ?? '');
 
@@ -37,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $_SESSION['utilisateur'] = [
             "login" => $utilisateurTrouver['login'],
             "prenom" => $utilisateurTrouver['prenom'],
-            "nom" => $utilisateurTrouver['password']
+            "nom" => $utilisateurTrouver['nom']
         ];
 
         // on ne reste jamais sur la page du formulaire lorsque celui-ci a été soumis
